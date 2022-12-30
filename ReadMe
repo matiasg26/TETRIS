@@ -1,0 +1,40 @@
+Overview:
+Outside of the Pane Organizer and the Game classes, my program contains three specific classes.
+Below is a breakdown of each
+    Board:
+    - Creates the border around the play-space as well as the board itself, seamless allowing movement and control of
+    pieces
+    - Contains methods like checking if rows are full or have pieces in them and if the game should be ended
+    BoardSquare:
+    - This class is the core of the programs. Without the board squares the program would be lost as the board
+    squares are the building blocks of the pieces and the entire board.
+    TetrisPiece
+    - This class contains the bulk of my code
+    - It handles the creation (using a switch statement) and movement of all the pieces (besides the calling of the movePiece methods, that is in
+    Game). It has the responsibility of checking if the pieces should be able to move/rotate by seeing if their
+    future locations would be off the board or not.
+    - TetrisPiece also handles the removal of full rows and translation of the rows above downward.
+    Game:
+    -Simply handles key presses, labels, game over, pausing, and my timeline
+
+Design Choices:
+    My program relied on two main piece arrays: tiles and squares. Tiles was created within the Board class
+    and squares was created within the TetrisPiece class. The balance of these two meant squares avoiding overlap
+    with tiles and turning squares into tiles when necessary to allow for collision between pieces. Additionally,
+    another interesting part of my program was the way I handled pausing. I decided to make it so whenever you
+    pressed p a counter would increase and depending on whether the current value of the counter was odd or even
+    the game would either pause or unpause. Along with the game boolean, I then just plugged in the pause boolean
+    statement into my switch statement for handling key presses. I am very proud of this because usually
+    steps like this take me a while to figure out elegantly and in this case I did it rather quickly. Other
+    methods like stopping the game and rotating pieces had psuedocode that I just followed pretty closely so no
+    design choices there. However, for the pause and game label I used the label from Snake because I thought it
+    looked very cool (I hope this is allowed!).
+
+Known Bugs:
+None
+
+Debugging Collaborators:
+None
+
+Hours:
+25
