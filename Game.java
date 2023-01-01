@@ -39,17 +39,21 @@ public class Game {
     //Timeline that controls the whole game
     private void tetrisTimeLine() {
         KeyFrame ef = new KeyFrame(Duration.seconds(.3), (f) -> {
-            this.piece.movePieceDown();
-            this.piece.checkNewPiece();
-            this.piece.clearLines();
-            this.board.stopGame();
-            if (this.board.stopGame()) {
-                this.gameOver();
-            }
+            this.timelineHandler() ;
         });
         this.tetTimeline = new Timeline(ef);
         this.tetTimeline.setCycleCount(Animation.INDEFINITE);
         this.tetTimeline.play();
+    }
+    //Controls the entire game and its respective methods
+    private void timelineHandler() {
+        this.piece.movePieceDown();
+        this.piece.checkNewPiece();
+        this.piece.clearLines();
+        this.board.stopGame();
+        if (this.board.stopGame()) {
+            this.gameOver();
+        }
     }
     //Ends the game if the stopGame conditions are met
     public void gameOver() {
